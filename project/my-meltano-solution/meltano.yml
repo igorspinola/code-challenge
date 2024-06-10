@@ -1,0 +1,38 @@
+version: 1
+default_environment: dev
+project_id: 4072e851-1c68-4321-aed7-0bf733c14cc6
+environments:
+- name: dev
+- name: staging
+- name: prod
+plugins:
+  extractors:
+  - name: tap-postgres
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+    config:
+      batch_config:
+        encoding:
+          compression: none
+          format: jsonl
+        storage:
+          prefix: ''
+          root: ''
+      database: dbnorthwind
+      user: postgres
+      port: 5432
+      host: localhost
+    select:
+    - public-employees.*
+    - public-categories.*
+    - public-customer_customer_demo.*
+    - public-customer_demographics.*
+    - public-customers.*
+    - public-employee_territories.*
+    - public-orders.*
+    - public-products.*
+    - public-region.*
+    - public-shippers.*
+    - public-suppliers.*
+    - public-territories.*
+    - public-us_states.*
