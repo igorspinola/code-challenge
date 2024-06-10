@@ -8,31 +8,34 @@ environments:
 plugins:
   extractors:
   - name: tap-postgres
-    variant: meltanolabs
-    pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+    variant: transferwise
+    pip_url: pipelinewise-tap-postgres
     config:
-      batch_config:
-        encoding:
-          compression: none
-          format: jsonl
-        storage:
-          prefix: ''
-          root: ''
-      database: dbnorthwind
+      dbname: dbnorthwind
       user: postgres
       port: 5432
       host: localhost
+      filter_schemas: public
+      default_replication_method: FULL_TABLE
     select:
-    - public-employees.*
-    - public-categories.*
-    - public-customer_customer_demo.*
-    - public-customer_demographics.*
-    - public-customers.*
-    - public-employee_territories.*
-    - public-orders.*
-    - public-products.*
-    - public-region.*
-    - public-shippers.*
-    - public-suppliers.*
-    - public-territories.*
-    - public-us_states.*
+      - public-employees.*
+      - public-employees.photo
+      - public-categories.*
+      - public-categories.picture
+      - public-customer_customer_demo.*
+      - public-customer_demographics.*
+      - public-customers.*
+      - public-employee_territories.*
+      - public-orders.*
+      - public-products.*
+      - public-region.*
+      - public-shippers.*
+      - public-suppliers.*
+      - public-territories.*
+      - public-us_states.*
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
+    config:
+      destination_path: cdc_output
