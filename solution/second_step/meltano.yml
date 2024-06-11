@@ -5,3 +5,71 @@ environments:
 - name: dev
 - name: staging
 - name: prod
+plugins:
+  extractors:
+  - name: tap-csv
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
+    config:
+      files:
+      - path: ../first_step/csv_first_output/order_details.csv
+        entity: order_details
+        keys:
+        - id
+      - path: ../first_step/csv_first_output/public-categories-20240611T015148.csv
+        entity: categories
+        keys:
+        - id
+      - path: ../first_step/csv_first_output/public-customers-20240611T015148.csv
+        entity: customers
+        keys:
+        - id
+      - path: ../first_step/csv_first_output/public-employees-20240611T015148.csv
+        entity: employees
+        keys:
+        - id
+      - path: ../first_step/csv_first_output/public-employee_territories-20240611T015148.csv
+        entity: employee_territories
+        keys:
+        - id
+      - path: ../first_step/csv_first_output/public-orders-20240611T015148.csv
+        entity: orders
+        keys:
+        - id
+      - path: ../first_step/csv_first_output/public-products-20240611T015148.csv
+        entity: products
+        keys:
+        - id
+      - path: ../first_step/csv_first_output/public-region-20240611T015148.csv
+        entity: region
+        keys:
+        - id
+      - path: ../first_step/csv_first_output/public-shippers-20240611T015148.csv
+        entity: shippers
+        keys:
+        - id
+      - path: ../first_step/csv_first_output/public-suppliers-20240611T015148.csv
+        entity: suppliers
+        keys:
+        - id
+      - path: ../first_step/csv_first_output/public-territories-20240611T015148.csv
+        entity: territories
+        keys:
+        - id
+      - path: ../first_step/csv_first_output/public-us_states-20240611T015148.csv
+        entity: us_states
+        keys:
+        - id
+    select:
+    - '*.*'
+    - '*.*'
+  loaders:
+  - name: target-postgres
+    variant: transferwise
+    pip_url: pipelinewise-target-postgres
+    config:
+      dbname: target
+      primary_key_required: false
+      user: postgres
+      host: localhost
+      port: 5432
