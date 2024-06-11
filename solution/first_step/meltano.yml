@@ -1,7 +1,25 @@
 version: 1
 default_environment: dev
-project_id: 1db9a909-609c-43ce-a0b9-9eb370e03565
+project_id: 9b56a65d-51d4-400e-99c7-178e642876ef
 environments:
 - name: dev
 - name: staging
 - name: prod
+plugins:
+  extractors:
+  - name: tap-postgres
+    variant: transferwise
+    pip_url: pipelinewise-tap-postgres
+    config:
+      dbname: dbnorthwind
+      default_replication_method: FULL_TABLE
+      filter_schemas: public
+      host: localhost
+      port: 5432
+      user: postgres
+  loaders:
+  - name: target-csv
+    variant: hotgluexyz
+    pip_url: git+https://github.com/hotgluexyz/target-csv.git
+    config:
+      destination_path: ./csv_first_output

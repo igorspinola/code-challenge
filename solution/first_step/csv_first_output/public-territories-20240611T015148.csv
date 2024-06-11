@@ -1,0 +1,54 @@
+region_id,territory_description,territory_id
+1,Westboro,01581
+1,Bedford,01730
+1,Georgetow,01833
+1,Boston,02116
+1,Cambridge,02139
+1,Braintree,02184
+1,Providence,02903
+3,Hollis,03049
+3,Portsmouth,03801
+1,Wilton,06897
+1,Morristown,07960
+1,Edison,08837
+1,New York,10019
+1,New York,10038
+1,Mellvile,11747
+1,Fairport,14450
+3,Philadelphia,19428
+1,Neward,19713
+1,Rockville,20852
+1,Greensboro,27403
+1,Cary,27511
+4,Columbia,29202
+4,Atlanta,30346
+4,Savannah,31406
+4,Orlando,32859
+4,Tampa,33607
+1,Louisville,40222
+3,Beachwood,44122
+3,Findlay,45839
+3,Southfield,48075
+3,Troy,48084
+3,Bloomfield Hills,48304
+3,Racine,53404
+3,Roseville,55113
+3,Minneapolis,55439
+2,Hoffman Estates,60179
+2,Chicago,60601
+4,Bentonville,72716
+4,Dallas,75234
+4,Austin,78759
+2,Denver,80202
+2,Colorado Springs,80909
+2,Phoenix,85014
+2,Scottsdale,85251
+2,Santa Monica,90405
+2,Menlo Park,94025
+2,San Francisco,94105
+2,Campbell,95008
+2,Santa Clara,95054
+2,Santa Cruz,95060
+2,Bellevue,98004
+2,Redmond,98052
+2,Seattle,98104
