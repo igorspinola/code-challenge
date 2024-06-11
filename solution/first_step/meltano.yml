@@ -22,7 +22,7 @@ plugins:
     variant: hotgluexyz
     pip_url: git+https://github.com/hotgluexyz/target-csv.git
     config:
-      destination_path: ./csv_first_output
+      destination_path: ./csv_first_output/postgres
   orchestrators:
   - name: airflow
     variant: apache
