@@ -73,3 +73,26 @@ plugins:
       user: postgres
       host: localhost
       port: 5432
+  orchestrators:
+  - name: airflow
+    variant: apache
+    pip_url: apache-airflow==2.1.2 --constraint 
+      https://raw.githubusercontent.com/apache/airflow/constraints-2.1.2/constraints-${MELTANO__PYTHON_VERSION}.txt
+  files:
+  - name: files-airflow
+    variant: meltano
+    pip_url: git+https://github.com/meltano/files-airflow.git
+  utilities:
+  - name: airflow
+    variant: apache
+    pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.8.1
+      --constraint 
+      https://raw.githubusercontent.com/apache/airflow/constraints-2.8.1/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
+schedules:
+- name: tap-csv-to-target-postgres
+  interval: '@daily'
+  job: tap-csv-to-target-postgres
+jobs:
+- name: tap-csv-to-target-postgres
+  tasks:
+  - tap-csv target-postgres
