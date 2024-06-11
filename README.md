@@ -3,7 +3,7 @@
 Code challenge for Software Developer with focus in data projects.
 
 
-## Context
+## Solution
 
 My solution steps are provided on folders solution/first_step and solution/second_step. Both are scheduled using airflow with the @daily directive on their respective meltano.yml configuration files.
 
